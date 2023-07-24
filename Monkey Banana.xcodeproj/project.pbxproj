@@ -16,6 +16,7 @@
 		BCB5291F2A6EED71007803BE /* Monkey_BananaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5291E2A6EED71007803BE /* Monkey_BananaUITestsLaunchTests.swift */; };
 		BCB5292C2A6EF153007803BE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5292B2A6EF153007803BE /* GameView.swift */; };
 		BCB5292E2A6EFE9B007803BE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5292D2A6EFE9B007803BE /* GameScene.swift */; };
+		BCB529312A6F16BC007803BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529302A6F16BC007803BE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		BCB5291E2A6EED71007803BE /* Monkey_BananaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monkey_BananaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BCB5292B2A6EF153007803BE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		BCB5292D2A6EFE9B007803BE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		BCB529302A6F16BC007803BE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		BCB529002A6EED6E007803BE /* Monkey Banana */ = {
 			isa = PBXGroup;
 			children = (
+				BCB5292F2A6F169C007803BE /* Utils */,
 				BCB529012A6EED6E007803BE /* Monkey_BananaApp.swift */,
 				BCB529032A6EED6E007803BE /* ContentView.swift */,
 				BCB529052A6EED70007803BE /* Assets.xcassets */,
@@ -131,6 +134,14 @@
 				BCB5291E2A6EED71007803BE /* Monkey_BananaUITestsLaunchTests.swift */,
 			);
 			path = "Monkey BananaUITests";
+			sourceTree = "<group>";
+		};
+		BCB5292F2A6F169C007803BE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BCB529302A6F16BC007803BE /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCB529312A6F16BC007803BE /* Extensions.swift in Sources */,
 				BCB529042A6EED6E007803BE /* ContentView.swift in Sources */,
 				BCB5292C2A6EF153007803BE /* GameView.swift in Sources */,
 				BCB5292E2A6EFE9B007803BE /* GameScene.swift in Sources */,
