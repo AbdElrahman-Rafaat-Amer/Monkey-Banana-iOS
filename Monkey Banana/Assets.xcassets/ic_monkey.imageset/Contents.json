@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "chimpanzee.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "chimpanzee@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "chimpanzee@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

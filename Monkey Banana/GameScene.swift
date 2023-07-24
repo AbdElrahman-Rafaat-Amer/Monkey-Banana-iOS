@@ -9,4 +9,7 @@ import Foundation
 import SpriteKit
 
 class GameScene : SKScene{
+    private let banana = SKSpriteNode(imageNamed: "ic_banana")
+    
+    
 }
