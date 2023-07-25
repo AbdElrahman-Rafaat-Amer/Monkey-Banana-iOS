@@ -11,8 +11,10 @@ import SpriteKit
 class GameScene : SKScene{
     private let banana = SKSpriteNode(imageNamed: "ic_banana")
     private let ground = SKSpriteNode(imageNamed: "ic_ground")
+    private let monkey = SKSpriteNode(imageNamed: "ic_monkey")
     
     override func didMove(to view: SKView) {
+        monkey.setScale(0.4)
         addBackground()
         addBottomGround()
         addBanana()
@@ -20,7 +22,7 @@ class GameScene : SKScene{
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(addMonkey),
-                SKAction.wait(forDuration: 2.0)
+                SKAction.wait(forDuration: 4.8)
             ])
         ))
     }
@@ -41,7 +43,7 @@ class GameScene : SKScene{
     
     private func addBanana(){
         banana.setScale(0.25)
-        let bananaX = banana.size.width/2
+        let bananaX = size.width / 4
         let bananaY = banana.size.height/2 + ground.size.height/2
         banana.position = CGPoint(x: bananaX, y: bananaY)
         addChild(banana)
@@ -67,5 +69,23 @@ class GameScene : SKScene{
         let runAction = SKAction.sequence([moveAction, removeAction])
         
         monkey.run(runAction)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard let touch = touches.first else{
+            return
+        }
+        
+        let touchLocation = touch.location(in: self)
+        
+    
+        let bananaCurrentPosition = banana.position
+        let targetPoint = CGPoint(x: bananaCurrentPosition.x, y: bananaCurrentPosition.y + monkey.size.height * 3)
+        let bananaActionMove = SKAction.move(to: targetPoint, duration: 1.3)
+        let bananaActionMove2 = SKAction.move(to: bananaCurrentPosition, duration: 1.3)
+        let bananaRunAction = SKAction.sequence([bananaActionMove, bananaActionMove2])
+        
+        banana.run(bananaRunAction)
     }
 }
