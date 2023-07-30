@@ -12,8 +12,12 @@ class GameScene : SKScene{
     private let banana = SKSpriteNode(imageNamed: "ic_banana")
     private let ground = SKSpriteNode(imageNamed: "ic_ground")
     private let monkey = SKSpriteNode(imageNamed: "ic_monkey")
+    private var monkeySpeed: CGFloat = 1
     
     override func didMove(to view: SKView) {
+        
+        setupPhysics()
+        
         monkey.setScale(0.4)
         addBackground()
         addBottomGround()
@@ -21,10 +25,25 @@ class GameScene : SKScene{
         
         run(SKAction.repeatForever(
             SKAction.sequence([
-                SKAction.run(addMonkey),
-                SKAction.wait(forDuration: 4.8)
+                SKAction.wait(forDuration: 4.8),
+                SKAction.run(addMonkey)
             ])
         ))
+    }
+    
+    private func setupPhysics(){
+        physicsWorld.gravity = .zero
+        physicsWorld.contactDelegate = self
+        
+        let leftBottomPoint = CGPoint(x: 0, y: 0)
+        let leftTopPoint = CGPoint(x: 0, y: size.height)
+        
+        self.physicsBody = SKPhysicsBody.init(edgeFrom: leftBottomPoint, to: leftTopPoint)
+        
+        self.physicsBody?.isDynamic = true
+        self.physicsBody?.categoryBitMask = PhysicsCategory.screenEdge
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.monkey
+        self.physicsBody?.collisionBitMask = PhysicsCategory.none
     }
     
     private func addBackground(){
@@ -46,6 +65,16 @@ class GameScene : SKScene{
         let bananaX = size.width / 4
         let bananaY = banana.size.height/2 + ground.size.height/2
         banana.position = CGPoint(x: bananaX, y: bananaY)
+        
+        banana.physicsBody = SKPhysicsBody(rectangleOf: banana.size)
+        banana.physicsBody?.isDynamic = true
+        banana.physicsBody?.categoryBitMask = PhysicsCategory.banana
+        banana.physicsBody?.contactTestBitMask = PhysicsCategory.monkey
+        banana.physicsBody?.collisionBitMask = PhysicsCategory.none
+        banana.physicsBody?.mass = 15
+        banana.physicsBody?.friction = 10
+        banana.physicsBody?.linearDamping = 10
+        
         addChild(banana)
     }
     
@@ -56,19 +85,20 @@ class GameScene : SKScene{
         let monkeyY = monkey.size.height/2 + ground.size.height/2
         let startPoint = CGPoint(x: monkeyX, y: monkeyY)
         monkey.position = startPoint
+        
+        monkey.physicsBody = SKPhysicsBody(rectangleOf: monkey.size)
+        monkey.physicsBody?.isDynamic = true
+        monkey.physicsBody?.categoryBitMask = PhysicsCategory.monkey
+        monkey.physicsBody?.contactTestBitMask = PhysicsCategory.banana
+        monkey.physicsBody?.collisionBitMask = PhysicsCategory.none
+        monkey.physicsBody?.usesPreciseCollisionDetection = true
+        monkey.physicsBody?.mass = 0.00015
+        monkey.physicsBody?.friction = 0
+        monkey.physicsBody?.linearDamping = 0
+        
         addChild(monkey)
         
-        let endPoint = CGPoint(x: -monkey.size.width/2, y: monkeyY)
-        let distance = endPoint.distance(to: startPoint)
-        
-        
-        let rockSpeed : CGFloat = 60
-        let duration = TimeInterval(distance / rockSpeed)
-        let moveAction = SKAction.move(to: endPoint, duration: duration)
-        let removeAction = SKAction.removeFromParent()
-        let runAction = SKAction.sequence([moveAction, removeAction])
-        
-        monkey.run(runAction)
+        monkey.physicsBody?.applyForce(targetPotint: banana.position, magnitude: monkeySpeed)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -87,5 +117,33 @@ class GameScene : SKScene{
         let bananaRunAction = SKAction.sequence([bananaActionMove, bananaActionMove2])
         
         banana.run(bananaRunAction)
+    }
+}
+
+extension GameScene : SKPhysicsContactDelegate {
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask{
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        }else{
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if (firstBody.categoryBitMask & PhysicsCategory.monkey != 0) && (secondBody.categoryBitMask & PhysicsCategory.banana != 0){
+            //banana collide with monkey
+            //game over
+            print("Abdo gameOver")
+        }else if (firstBody.categoryBitMask & PhysicsCategory.monkey != 0) && (secondBody.categoryBitMask & PhysicsCategory.screenEdge != 0){
+            if let monkey = firstBody.node {
+                //monkey reach the screen edge and will be deleted
+                print("Abdo monkey will be removed")
+                monkey.removeFromParent()
+            }
+        }
     }
 }

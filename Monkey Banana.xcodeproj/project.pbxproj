@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC926F782A76BCD700A822B6 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC926F772A76BCD700A822B6 /* PhysicsCategory.swift */; };
 		BCB529022A6EED6E007803BE /* Monkey_BananaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529012A6EED6E007803BE /* Monkey_BananaApp.swift */; };
 		BCB529042A6EED6E007803BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529032A6EED6E007803BE /* ContentView.swift */; };
 		BCB529062A6EED70007803BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCB529052A6EED70007803BE /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC926F772A76BCD700A822B6 /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		BCB528FE2A6EED6E007803BE /* Monkey Banana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monkey Banana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB529012A6EED6E007803BE /* Monkey_BananaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monkey_BananaApp.swift; sourceTree = "<group>"; };
 		BCB529032A6EED6E007803BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				BCB529072A6EED70007803BE /* Preview Content */,
 				BCB5292B2A6EF153007803BE /* GameView.swift */,
 				BCB5292D2A6EFE9B007803BE /* GameScene.swift */,
+				BC926F772A76BCD700A822B6 /* PhysicsCategory.swift */,
 			);
 			path = "Monkey Banana";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				BCB529312A6F16BC007803BE /* Extensions.swift in Sources */,
 				BCB529042A6EED6E007803BE /* ContentView.swift in Sources */,
 				BCB5292C2A6EF153007803BE /* GameView.swift in Sources */,
+				BC926F782A76BCD700A822B6 /* PhysicsCategory.swift in Sources */,
 				BCB5292E2A6EFE9B007803BE /* GameScene.swift in Sources */,
 				BCB529022A6EED6E007803BE /* Monkey_BananaApp.swift in Sources */,
 			);
