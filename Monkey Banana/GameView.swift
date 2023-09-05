@@ -38,6 +38,17 @@ extension GameView : GameProtocol{
     func onGetPoints(points: Int) {
         self.points += points
     }
+    
+    func onGameOver() {
+        saveScore()
+    }
+    
+    private func saveScore(){
+        let highScore = UserDefulatManager.INSTANCE.getHighScore()
+        if (points > highScore) {
+            UserDefulatManager.INSTANCE.saveHighScore(score: points)
+        }
+    }
 }
 
 struct GameView_Previews: PreviewProvider {

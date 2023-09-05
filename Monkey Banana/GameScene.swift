@@ -10,6 +10,7 @@ import SpriteKit
 
 protocol GameProtocol{
     func onGetPoints(points: Int)
+    func onGameOver()
 }
 
 class GameScene : SKScene{
@@ -159,7 +160,7 @@ extension GameScene : SKPhysicsContactDelegate {
         
         if (firstBody.categoryBitMask & PhysicsCategory.monkey != 0) && (secondBody.categoryBitMask & PhysicsCategory.banana != 0){
             //banana collide with monkey
-            //game over
+            gameDelegate?.onGameOver()
         }
     }
     
