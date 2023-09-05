@@ -10,17 +10,40 @@ import SpriteKit
 
 struct GameView: View {
     @State private var points = 0
+    @State private var scene: GameScene?
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .topLeading) {
-                let scene = GameScene(size: proxy.size)
-                let _ = scene.gameDelegate = self
-                SpriteView(scene: scene).frame(width: proxy.size.width, height: proxy.size.height)
-                HStack(){
-                    Text("Points:").font(.system(size: 25)).foregroundColor(Color.white)
-                    
-                    Text("\(points)").font(.system(size: 25)).foregroundColor(Color.white)
-                }.padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
+            ZStack(){
+                ZStack(alignment: .topTrailing) {
+                    if let _ = scene{
+                        SpriteView(scene: scene!).frame(width: proxy.size.width, height: proxy.size.height)
+                    }
+                    HStack(){
+                        Text("Points:").font(.system(size: 25)).foregroundColor(Color.white)
+                        
+                        Text("\(points)").font(.system(size: 25)).foregroundColor(Color.white)
+                    }.padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 10))
+                }.onAppear{
+                    scene = GameScene(size: proxy.size)
+                    scene?.gameDelegate = self
+                }
+                
+                ZStack(){
+                    HStack(){
+                        Image("ic_pause").onTapGesture {
+                            pauseGame()
+                        }
+                    }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                }.padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 0)).frame(
+                    minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    maxHeight: .infinity,
+                    alignment: .topLeading
+                )
+                
+                
+                
             }.frame(
                 minWidth: 0,
                 maxWidth: .infinity,
@@ -41,6 +64,10 @@ extension GameView : GameProtocol{
     
     func onGameOver() {
         saveScore()
+    }
+    
+    private func pauseGame(){
+        scene?.pause()
     }
     
     private func saveScore(){

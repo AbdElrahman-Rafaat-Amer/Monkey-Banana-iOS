@@ -21,6 +21,18 @@ class GameScene : SKScene{
     private let monkey = SKSpriteNode(imageNamed: "ic_monkey")
     private var monkeySpeed: CGFloat = 1
     private var bananaStartPoint = CGPoint(x: 0, y: 0)
+    private var isGamePaused = false{
+        didSet{
+            super.isPaused = isGamePaused
+        }
+    }
+    override var isPaused: Bool{
+        didSet{
+            if (super.isPaused != isGamePaused){
+                super.isPaused = isGamePaused
+            }
+        }
+    }
     
     override func didMove(to view: SKView) {
         print("Abdo didMove")
@@ -129,6 +141,14 @@ class GameScene : SKScene{
         
         let endPoint = CGPoint(x: size.width/2, y: monkeyY)
         monkey.physicsBody?.applyForce(targetPotint: endPoint, magnitude: monkeySpeed)
+    }
+    
+    func pause(){
+        isGamePaused = true
+    }
+    
+    func resume(){
+        isGamePaused = false
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
