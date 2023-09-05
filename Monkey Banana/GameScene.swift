@@ -8,7 +8,13 @@
 import Foundation
 import SpriteKit
 
+protocol GameProtocol{
+    func onGetPoints(points: Int)
+}
+
 class GameScene : SKScene{
+    var gameDelegate : GameProtocol?
+    
     private let banana = SKSpriteNode(imageNamed: "ic_banana")
     private let ground = SKSpriteNode(imageNamed: "ic_ground")
     private let monkey = SKSpriteNode(imageNamed: "ic_monkey")
@@ -171,8 +177,8 @@ extension GameScene : SKPhysicsContactDelegate {
         
         if (firstBody.categoryBitMask & PhysicsCategory.monkey != 0) && (secondBody.categoryBitMask & PhysicsCategory.screenEdge != 0){
             if let monkey = firstBody.node {
-                //monkey reach the screen edge and will be deleted
                 monkey.removeFromParent()
+                gameDelegate?.onGetPoints(points: 1)
             }
         }
     }
