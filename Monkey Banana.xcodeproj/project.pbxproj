@@ -18,6 +18,7 @@
 		BCB5292C2A6EF153007803BE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5292B2A6EF153007803BE /* GameView.swift */; };
 		BCB5292E2A6EFE9B007803BE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5292D2A6EFE9B007803BE /* GameScene.swift */; };
 		BCB529312A6F16BC007803BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529302A6F16BC007803BE /* Extensions.swift */; };
+		BCC534CC2AA7A37500552147 /* UserDefultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC534CB2AA7A37500552147 /* UserDefultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		BCB5292B2A6EF153007803BE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		BCB5292D2A6EFE9B007803BE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BCB529302A6F16BC007803BE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BCC534CB2AA7A37500552147 /* UserDefultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				BCB529302A6F16BC007803BE /* Extensions.swift */,
+				BCC534CB2AA7A37500552147 /* UserDefultManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCB529312A6F16BC007803BE /* Extensions.swift in Sources */,
+				BCC534CC2AA7A37500552147 /* UserDefultManager.swift in Sources */,
 				BCB529042A6EED6E007803BE /* ContentView.swift in Sources */,
 				BCB5292C2A6EF153007803BE /* GameView.swift in Sources */,
 				BC926F782A76BCD700A822B6 /* PhysicsCategory.swift in Sources */,
