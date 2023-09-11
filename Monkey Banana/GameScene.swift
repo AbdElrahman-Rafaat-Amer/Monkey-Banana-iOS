@@ -35,7 +35,6 @@ class GameScene : SKScene{
     }
     
     override func didMove(to view: SKView) {
-        print("Abdo didMove")
         setupPhysics()
         
         monkey.setScale(0.4)

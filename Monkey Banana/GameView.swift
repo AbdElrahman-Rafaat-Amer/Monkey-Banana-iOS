@@ -13,7 +13,8 @@ struct GameView: View {
     @State private var scene: GameScene?
     @State private var imageName = "ic_pause"
     @State private var isGamePaused = false
-    
+    @Environment(\.scenePhase) var scenePhase
+
     var body: some View {
         GeometryReader { proxy in
             ZStack(){
@@ -57,20 +58,35 @@ struct GameView: View {
             .background(Color.green)
             .navigationBarHidden(true)
         }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .inactive {
+                if !isGamePaused{
+                    pauseGame()
+                }
+            }
+        }
     }
 }
 
 extension GameView{
     private func onPauseClicked(){
         if isGamePaused{
-            isGamePaused = false
-            scene?.resume()
-            imageName = "ic_pause"
+            resumeGame()
         }else{
-            isGamePaused = true
-            scene?.pause()
-            imageName = "ic_resume"
+            pauseGame()
         }
+    }
+    
+    private func pauseGame(){
+        isGamePaused = true
+        scene?.pause()
+        imageName = "ic_resume"
+    }
+    
+    private func resumeGame(){
+        isGamePaused = false
+        scene?.resume()
+        imageName = "ic_pause"
     }
 }
 extension GameView : GameProtocol{
