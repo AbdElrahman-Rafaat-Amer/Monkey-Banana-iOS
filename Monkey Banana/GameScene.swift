@@ -41,12 +41,6 @@ class GameScene : SKScene{
         ground.setScale(0.3)
         addBackground()
         addBanana()
-//        run(SKAction.repeat(
-//            SKAction.sequence([
-//                SKAction.wait(forDuration: 1.5),
-//                SKAction.run(addBanana)
-//            ]), count: 1
-//        ))
         
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -134,7 +128,7 @@ class GameScene : SKScene{
         let startPoint = CGPoint(x: monkeyX, y: monkeyY)
         monkey.position = startPoint
         
-        monkey.physicsBody = SKPhysicsBody(rectangleOf: monkey.size)
+        monkey.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: monkey.size.width - 10, height: monkey.size.height - 10))
         monkey.physicsBody?.isDynamic = true
         monkey.physicsBody?.categoryBitMask = PhysicsCategory.monkey
         monkey.physicsBody?.contactTestBitMask = PhysicsCategory.banana
@@ -161,9 +155,9 @@ class GameScene : SKScene{
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if banana.position.y <= bananaStartPoint.y {
             let bananaCurrentPosition = banana.position
-            let targetPoint = CGPoint(x: bananaCurrentPosition.x, y: bananaCurrentPosition.y + monkey.size.height * 3)
-            let bananaActionMove = SKAction.move(to: targetPoint, duration: 1.3)
-            let bananaActionMove2 = SKAction.move(to: bananaCurrentPosition, duration: 1.3)
+            let targetPoint = CGPoint(x: bananaCurrentPosition.x, y: bananaCurrentPosition.y + monkey.size.height * 2.5)
+            let bananaActionMove = SKAction.move(to: targetPoint, duration: 1)
+            let bananaActionMove2 = SKAction.move(to: bananaCurrentPosition, duration: 1)
             let bananaRunAction = SKAction.sequence([bananaActionMove, bananaActionMove2])
             
             banana.run(bananaRunAction)
