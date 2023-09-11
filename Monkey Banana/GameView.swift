@@ -11,6 +11,9 @@ import SpriteKit
 struct GameView: View {
     @State private var points = 0
     @State private var scene: GameScene?
+    @State private var imageName = "ic_pause"
+    @State private var isGamePaused = false
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack(){
@@ -30,8 +33,8 @@ struct GameView: View {
                 
                 ZStack(){
                     HStack(){
-                        Image("ic_pause").onTapGesture {
-                            pauseGame()
+                        Image(imageName).imageScale(.large).onTapGesture {
+                            onPauseClicked()
                         }
                     }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 }.padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 0)).frame(
@@ -57,6 +60,19 @@ struct GameView: View {
     }
 }
 
+extension GameView{
+    private func onPauseClicked(){
+        if isGamePaused{
+            isGamePaused = false
+            scene?.resume()
+            imageName = "ic_pause"
+        }else{
+            isGamePaused = true
+            scene?.pause()
+            imageName = "ic_resume"
+        }
+    }
+}
 extension GameView : GameProtocol{
     func onGetPoints(points: Int) {
         self.points += points
@@ -64,10 +80,6 @@ extension GameView : GameProtocol{
     
     func onGameOver() {
         saveScore()
-    }
-    
-    private func pauseGame(){
-        scene?.pause()
     }
     
     private func saveScore(){
