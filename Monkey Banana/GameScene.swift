@@ -41,6 +41,12 @@ class GameScene : SKScene{
         ground.setScale(0.3)
         addBackground()
         addBanana()
+//        run(SKAction.repeat(
+//            SKAction.sequence([
+//                SKAction.wait(forDuration: 1.5),
+//                SKAction.run(addBanana)
+//            ]), count: 1
+//        ))
         
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -96,14 +102,13 @@ class GameScene : SKScene{
         addChild(ground)
 
         let endPoint = CGPoint(x: frame.size.width/2, y: ground.position.y)
-        ground.physicsBody?.applyForce(targetPotint: endPoint, magnitude: monkeySpeed)
+        ground.physicsBody?.applyForce(targetPotint: endPoint, magnitude: 2)
     }
     
     private func addBanana(){
         banana.setScale(0.25)
-        let bananaX = size.width / 4
         let bananaY = banana.size.height/2 + ground.size.height/2
-        banana.position = CGPoint(x: bananaX, y: bananaY)
+        banana.position = CGPoint(x: -banana.size.width/2, y: bananaY)
         bananaStartPoint = banana.position
         
         banana.physicsBody = SKPhysicsBody(rectangleOf: banana.size)
@@ -116,6 +121,9 @@ class GameScene : SKScene{
         banana.physicsBody?.linearDamping = 0
         
         addChild(banana)
+        
+        let bananaActionMove = SKAction.move(to: CGPoint(x: size.width / 4, y: bananaY), duration: 2.5)
+        banana.run(bananaActionMove)
     }
     
     private func addMonkey(){
