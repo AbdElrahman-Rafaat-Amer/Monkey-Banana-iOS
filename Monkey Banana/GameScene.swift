@@ -86,8 +86,8 @@ class GameScene : SKScene{
 
         ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size)
         ground.physicsBody?.isDynamic = true
-        ground.physicsBody?.categoryBitMask = PhysicsCategory.none
-        ground.physicsBody?.contactTestBitMask = PhysicsCategory.none
+        ground.physicsBody?.categoryBitMask = PhysicsCategory.bottom
+        ground.physicsBody?.contactTestBitMask = PhysicsCategory.screenEdge
         ground.physicsBody?.collisionBitMask = PhysicsCategory.none
         ground.physicsBody?.mass = 0.00015
         ground.physicsBody?.friction = 0
@@ -199,6 +199,10 @@ extension GameScene : SKPhysicsContactDelegate {
             if let monkey = firstBody.node {
                 monkey.removeFromParent()
                 gameDelegate?.onGetPoints(points: 1)
+            }
+        }else if (firstBody.categoryBitMask & PhysicsCategory.bottom != 0) && (secondBody.categoryBitMask & PhysicsCategory.screenEdge != 0){
+            if let bottom = firstBody.node {
+                bottom.removeFromParent()
             }
         }
     }
