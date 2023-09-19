@@ -19,6 +19,7 @@
 		BCB5292E2A6EFE9B007803BE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5292D2A6EFE9B007803BE /* GameScene.swift */; };
 		BCB529312A6F16BC007803BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529302A6F16BC007803BE /* Extensions.swift */; };
 		BCC534CC2AA7A37500552147 /* UserDefultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC534CB2AA7A37500552147 /* UserDefultManager.swift */; };
+		BCC7409B2ABA147200A5EBF1 /* game_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCC7409A2ABA147100A5EBF1 /* game_sound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BCB5292D2A6EFE9B007803BE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BCB529302A6F16BC007803BE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BCC534CB2AA7A37500552147 /* UserDefultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultManager.swift; sourceTree = "<group>"; };
+		BCC7409A2ABA147100A5EBF1 /* game_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		BCB529002A6EED6E007803BE /* Monkey Banana */ = {
 			isa = PBXGroup;
 			children = (
+				BCC740992ABA145B00A5EBF1 /* sounds */,
 				BCB5292F2A6F169C007803BE /* Utils */,
 				BCB529012A6EED6E007803BE /* Monkey_BananaApp.swift */,
 				BCB529032A6EED6E007803BE /* ContentView.swift */,
@@ -148,6 +151,14 @@
 				BCC534CB2AA7A37500552147 /* UserDefultManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BCC740992ABA145B00A5EBF1 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BCC7409A2ABA147100A5EBF1 /* game_sound.mp3 */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC7409B2ABA147200A5EBF1 /* game_sound.mp3 in Resources */,
 				BCB529092A6EED70007803BE /* Preview Assets.xcassets in Resources */,
 				BCB529062A6EED70007803BE /* Assets.xcassets in Resources */,
 			);
