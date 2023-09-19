@@ -33,10 +33,11 @@ class GameScene : SKScene{
             }
         }
     }
+    private var backgroundMusic : SKAudioNode?
     
     override func didMove(to view: SKView) {
         setupPhysics()
-        
+        playMusic()
         monkey.setScale(0.4)
         ground.setScale(0.3)
         addBackground()
@@ -55,6 +56,14 @@ class GameScene : SKScene{
                 SKAction.run(addMonkey)
             ])
         ))
+    }
+    
+    private func playMusic(){
+        if let musicURL = Bundle.main.url(forResource: "game_sound", withExtension: ".mp3") {
+            backgroundMusic = SKAudioNode(url: musicURL)
+            backgroundMusic!.autoplayLooped = true
+            addChild(backgroundMusic!)
+        }
     }
     
     private func setupPhysics(){
@@ -181,6 +190,7 @@ extension GameScene : SKPhysicsContactDelegate {
         
         if (firstBody.categoryBitMask & PhysicsCategory.monkey != 0) && (secondBody.categoryBitMask & PhysicsCategory.banana != 0){
             //banana collide with monkey
+            backgroundMusic?.removeFromParent()
             gameDelegate?.onGameOver()
         }
     }
