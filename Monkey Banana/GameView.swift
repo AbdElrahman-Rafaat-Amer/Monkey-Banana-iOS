@@ -13,6 +13,8 @@ struct GameView: View {
     @State private var scene: GameScene?
     @State private var imageName = "ic_pause"
     @State private var isGamePaused = false
+    @State private var isPresented: Bool = false
+    @State private var bestScore: Int = 0
     @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
@@ -46,9 +48,12 @@ struct GameView: View {
                     alignment: .topLeading
                 )
                 
+                if isPresented{
+                        DialogView(playerScore: $points, bestScore: $bestScore, isPresented: $isPresented)
+                }
                 
-                
-            }.frame(
+            }
+            .frame(
                 minWidth: 0,
                 maxWidth: .infinity,
                 minHeight: 0,
@@ -95,7 +100,14 @@ extension GameView : GameProtocol{
     }
     
     func onGameOver() {
+        scene?.pause()
+        showGameOverDialog()
         saveScore()
+    }
+    
+    private func showGameOverDialog(){
+        bestScore =  UserDefulatManager.INSTANCE.getHighScore()
+        isPresented = true
     }
     
     private func saveScore(){

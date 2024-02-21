@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BC926F782A76BCD700A822B6 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC926F772A76BCD700A822B6 /* PhysicsCategory.swift */; };
+		BC9FB94B2ABB638700E36FC2 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9FB94A2ABB638700E36FC2 /* DialogView.swift */; };
+		BC9FB94D2ABB82D300E36FC2 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9FB94C2ABB82D300E36FC2 /* MyView.swift */; };
 		BCB529022A6EED6E007803BE /* Monkey_BananaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529012A6EED6E007803BE /* Monkey_BananaApp.swift */; };
 		BCB529042A6EED6E007803BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB529032A6EED6E007803BE /* ContentView.swift */; };
 		BCB529062A6EED70007803BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCB529052A6EED70007803BE /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		BC926F772A76BCD700A822B6 /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
+		BC9FB94A2ABB638700E36FC2 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
+		BC9FB94C2ABB82D300E36FC2 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		BCB528FE2A6EED6E007803BE /* Monkey Banana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Monkey Banana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB529012A6EED6E007803BE /* Monkey_BananaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monkey_BananaApp.swift; sourceTree = "<group>"; };
 		BCB529032A6EED6E007803BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				BCB5292B2A6EF153007803BE /* GameView.swift */,
 				BCB5292D2A6EFE9B007803BE /* GameScene.swift */,
 				BC926F772A76BCD700A822B6 /* PhysicsCategory.swift */,
+				BC9FB94A2ABB638700E36FC2 /* DialogView.swift */,
+				BC9FB94C2ABB82D300E36FC2 /* MyView.swift */,
 			);
 			path = "Monkey Banana";
 			sourceTree = "<group>";
@@ -295,9 +301,11 @@
 				BCB529312A6F16BC007803BE /* Extensions.swift in Sources */,
 				BCC534CC2AA7A37500552147 /* UserDefultManager.swift in Sources */,
 				BCB529042A6EED6E007803BE /* ContentView.swift in Sources */,
+				BC9FB94D2ABB82D300E36FC2 /* MyView.swift in Sources */,
 				BCB5292C2A6EF153007803BE /* GameView.swift in Sources */,
 				BC926F782A76BCD700A822B6 /* PhysicsCategory.swift in Sources */,
 				BCB5292E2A6EFE9B007803BE /* GameScene.swift in Sources */,
+				BC9FB94B2ABB638700E36FC2 /* DialogView.swift in Sources */,
 				BCB529022A6EED6E007803BE /* Monkey_BananaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Monkey Banana/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ET98LDP9Q;
+				DEVELOPMENT_TEAM = X72ST43PWC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -472,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abelrahman.raafaat.monkeybanana.Monkey-Banana";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abelrahman.raafaat.monkeybanana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -488,7 +496,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Monkey Banana/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ET98LDP9Q;
+				DEVELOPMENT_TEAM = X72ST43PWC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -503,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.abelrahman.raafaat.monkeybanana.Monkey-Banana";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abelrahman.raafaat.monkeybanana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
