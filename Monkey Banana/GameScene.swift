@@ -162,7 +162,7 @@ class GameScene : SKScene{
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if banana.position.y <= bananaStartPoint.y {
+//        if banana.position.y <= bananaStartPoint.y {
             let bananaCurrentPosition = banana.position
             let targetPoint = CGPoint(x: bananaCurrentPosition.x, y: bananaCurrentPosition.y + monkey.size.height * 2.5)
             let bananaActionMove = SKAction.move(to: targetPoint, duration: 1)
@@ -170,7 +170,7 @@ class GameScene : SKScene{
             let bananaRunAction = SKAction.sequence([bananaActionMove, bananaActionMove2])
             
             banana.run(bananaRunAction)
-        }
+//        }
     }
 }
 

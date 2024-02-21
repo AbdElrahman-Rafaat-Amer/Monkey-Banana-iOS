@@ -15,7 +15,7 @@ struct ContentView: View {
                     Text("Play")
                 }
             }
-        }
+        }.navigationBarHidden(true)
     }
 }
 

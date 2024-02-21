@@ -37,16 +37,16 @@ struct DialogView: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(.red)
-                        
-                        Text("Cancel")
-                            .foregroundColor(.white)
-                            .padding()
-                            .font(.system(size: 20, weight: .bold))
+                        NavigationLink(destination: ContentView()){
+                            Text("Cancel")
+                                .foregroundColor(.white)
+                                .padding()
+                                .font(.system(size: 20, weight: .bold))
+                        }
                     }
                 }
             }
             .fixedSize(horizontal: false, vertical: true)
-//            .padding(.horizontal, 90)
             .padding(20)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -56,10 +56,7 @@ struct DialogView: View {
 }
 
 struct DialogView_Previews: PreviewProvider {
-    @State static var playerScore = 100
-    @State static var bestScore = 204
-    @State static var isPresented = true
     static var previews: some View {
-        DialogView(playerScore: $playerScore, bestScore: $bestScore, isPresented: $isPresented)
+        DialogView(playerScore: .constant(10), bestScore: .constant(90) ,isPresented: .constant(true))
     }
 }

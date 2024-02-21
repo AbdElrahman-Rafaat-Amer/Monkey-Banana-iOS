@@ -49,7 +49,7 @@ struct GameView: View {
                 )
                 
                 if isPresented{
-                    DialogView(playerScore: $points, bestScore: $bestScore, isPresented: $isPresented)
+                        DialogView(playerScore: $points, bestScore: $bestScore, isPresented: $isPresented)
                 }
                 
             }
